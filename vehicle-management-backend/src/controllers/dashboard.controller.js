@@ -1,6 +1,6 @@
 const Trip = require("../models/Trip");
 const { fn, col } = require("sequelize");
-const Trip = require("../models/Trip");
+// const Trip = require("../models/Trip");
 const Vehicle = require("../models/Vehicle");
 exports.overview = async (req, res) => {
   const data = await Trip.findOne({

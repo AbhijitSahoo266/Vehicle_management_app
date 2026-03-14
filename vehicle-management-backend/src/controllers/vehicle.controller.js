@@ -7,7 +7,7 @@ exports.create = async (req, res) => {
 
 exports.getAll = async (req, res) => {
   const data = await Vehicle.findAll({
-    where: { userId: req.user.userId, isActive: true },
+    where: {  isActive: true },
   });
   res.json(data);
 };
@@ -32,7 +32,7 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
   const vehicle = await Vehicle.findOne({
-    where: { id: req.params.id, userId: req.user.userId },
+    where: { id: req.params.id },
   });
   if (!vehicle) return res.status(404).json({ error: "Vehicle not found" });
 

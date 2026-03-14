@@ -6,7 +6,7 @@ exports.create = async (req, res) => {
 };
 
 exports.getAll = async (req, res) => {
-  const where = { userId: req.user.userId };
+  const where = {};
   if (req.query.vehicleId) where.vehicleId = req.query.vehicleId;
 
   const trips = await Trip.findAll({ where });
@@ -33,7 +33,7 @@ exports.update = async (req, res) => {
 
 exports.remove = async (req, res) => {
   const trip = await Trip.findOne({
-    where: { id: req.params.id, userId: req.user.userId },
+    where: { id: req.params.id},
   });
   if (!trip) return res.status(404).json({ error: "Trip not found" });
 

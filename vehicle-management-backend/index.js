@@ -23,11 +23,11 @@ app.get("/", (req, res) => {
   res.send("Vehicle Management Backend Running 🚀");
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes); // register , login 
 app.use("/api/drivers", require("./src/routes/driver.routes"));
 app.use("/api/vehicles", require("./src/routes/vehicle.routes"));
 app.use("/api/trips", require("./src/routes/trip.routes"));
-
+app.use("/api/dashboard", require("./src/routes/dashboard.routes"));
 
 // DB connection
 sequelize
